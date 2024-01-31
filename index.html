@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <img src="" alt="logo">
+    </header>
+    <main>
+        <section>
+            <div class="entrada-encriptador">
+                <textarea name="text-entrada" id="text-entrada" class="text-entrada" cols="30" rows="10"></textarea>
+                <label for="entrada">Solo letras minúsculas y sin acento</label>
+                <div class="botones-encriptador">
+                    <button id="encriptar">Encriptar</button>
+                    <button id="desencriptar">Desencriptar</button>
+                </div>
+            </div>
+            <div class="salida-encriptador">
+                <textarea name="text-salida" id="text-salida" cols="30" rows="10" readonly></textarea>
+                <button id="copiar">Copiar</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="copyright">&copy; Copyright Oliver Pinto - 2024</p>
+        <ul>
+            <li><a href="https://www.linkedin.com/in/oliver-pinto-code/">Linkedin</a></li>
+            <li><a href="https://github.com/alh3x">Github</a></li>
+        </ul>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>
