@@ -8,7 +8,7 @@ const botonCopiar = document.getElementById('copiar');
 
 botonEncriptar.onclick = encriptar;
 botonDesencriptar.addEventListener('click',desencriptar);
-
+copiar();
 
 
 function minuscula() {
@@ -25,7 +25,7 @@ function minuscula() {
     })
     text = text.replace(regecSimbolos, "");
     textEntrada.value = text;
-    console.log(textEntrada.value)
+    
 }
 
 function limpiarTexto(elemento) {
@@ -34,7 +34,7 @@ function limpiarTexto(elemento) {
 
 function encriptar() {
     let text = textEntrada.value;
-    text = text.replace(/[eiaou]/g, function (valor) {
+    text = text.trim().replace(/[eiaou]/g, function (valor) {
         for (let i = 0; i < llavesEncriptar.length; i++) {
             if (valor === llavesEncriptar[i]) {
                 return llavesDesencriptar[i]
@@ -42,24 +42,29 @@ function encriptar() {
         }
     })
     textSalida.value = text;
+    botonCopiar.removeAttribute('disabled');
     limpiarTexto(textEntrada)
 };
 function desencriptar() {
     let text = textEntrada.value;
     for (let i = 0; i < llavesDesencriptar.length; i++) {
-        text = text.replace(llavesDesencriptar[i], llavesEncriptar[i])
+        text = text.replaceAll(llavesDesencriptar[i], llavesEncriptar[i])
     }
     textSalida.value = text;
+    botonCopiar.removeAttribute('disabled')
     limpiarTexto(textEntrada)
 }
 
 function copiar() {
+    botonCopiar.setAttribute('disabled', 'true');
     botonCopiar.addEventListener("click", writeClipboardText);
     async function writeClipboardText() {
         try {
             let text = textSalida.value;
             await navigator.clipboard.writeText(text);
+            botonCopiar.setAttribute('disabled', 'true');
             limpiarTexto(textSalida)
+            
         } catch (error) {
             console.error(error.message);
         }
@@ -67,4 +72,3 @@ function copiar() {
 
 }
 
-copiar();
