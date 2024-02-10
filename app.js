@@ -48,23 +48,19 @@ function encriptar() {
     }
     limpiarTexto(textEntrada);
 };
-//desencriptador utilizando las llaves,si eltexto a desencriptar son solo espacios sin ningun caracter vacia el textarea
+//desencriptador utilizando las llaves,si el texto a desencriptar son solo espacios sin ningun caracter vacia el textarea
 function desencriptar() {
     let text = textEntrada.value;
-    let desencriptarReplace = [];
-    let encriptarReplace = [];
+    let regex = /enter|imes|ai|ober|ufat/g;
 
-    llavesDesencriptar.forEach((element, i) => {
-        if(text.includes(element)){
-            desencriptarReplace.push(element);
-            encriptarReplace.push(llavesEncriptar[i])
+    text = text.trim().replace(regex, function (valor) {
+        for (let i = 0; i < llavesDesencriptar.length; i++) {
+            if (valor === llavesDesencriptar[i]) {
+                return llavesEncriptar[i]
+            }
         }
-    });
+    })
 
-    for (let i = 0; i < desencriptarReplace.length; i++) {
-        text = text.replaceAll(desencriptarReplace[i], encriptarReplace[i])
-        console.log(text)
-    }
     if(text!=""){
         textSalida.value = text;
         botonCopiar.removeAttribute('disabled');
