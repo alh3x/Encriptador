@@ -5,33 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header>
-        <img src="" alt="logo">
+        <img src="./imagenes/Logo.png" alt="logo">
     </header>
     <main>
         <section>
             <div class="entrada-encriptador">
-                <textarea oninput="minuscula();" name="text-entrada" id="text-entrada" class="text-entrada" cols="30" rows="10"></textarea>
-                <label for="entrada">Solo letras minúsculas y sin acento</label>
+                <textarea oninput="minuscula();" name="text-entrada" id="text-entrada" class="text-entrada" cols="30" rows="10" placeholder="Ingrese su texto aqui"></textarea>
                 <div class="botones-encriptador">
-                    <button  id="encriptar">Encriptar</button>
-                    <button  id="desencriptar">Desencriptar</button>
+                    <label class="mensaje-entrada" for="entrada"><span>&#33;</span>Solo letras minúsculas y sin acento</label>
+                    <button class="boton-encriptar" id="encriptar">Encriptar</button>
+                    <button class="boton-desencriptar" id="desencriptar">Desencriptar</button>
                 </div>
             </div>
             <div class="salida-encriptador">
-                <textarea name="text-salida" id="text-salida" cols="30" rows="10" readonly></textarea>
-                <button id="copiar">Copiar</button>
+                <textarea name="text-salida" id="text-salida" class="text-salida" cols="30" rows="10" readonly></textarea>
+                <div class="caja-copiar">
+                    <button class="boton-copiar" id="copiar">Copiar</button>
+                </div>
+                <div class="cover" id="cover">
+                    <img src="./imagenes/Muñeco.png" alt="mago encriptador">
+                    <h4>Ningun mensaje fue encontrado</h4>
+                    <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <p class="copyright">&copy; Copyright Oliver Pinto - 2024</p>
-        <ul>
+        <ul class="contact">
             <li><a href="https://www.linkedin.com/in/oliver-pinto-code/">Linkedin</a></li>
             <li><a href="https://github.com/alh3x">Github</a></li>
         </ul>
