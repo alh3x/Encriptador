@@ -51,8 +51,19 @@ function encriptar() {
 //desencriptador utilizando las llaves,si eltexto a desencriptar son solo espacios sin ningun caracter vacia el textarea
 function desencriptar() {
     let text = textEntrada.value;
-    for (let i = 0; i < llavesDesencriptar.length; i++) {
-        text = text.replaceAll(llavesDesencriptar[i], llavesEncriptar[i])
+    let desencriptarReplace = [];
+    let encriptarReplace = [];
+
+    llavesDesencriptar.forEach((element, i) => {
+        if(text.includes(element)){
+            desencriptarReplace.push(element);
+            encriptarReplace.push(llavesEncriptar[i])
+        }
+    });
+
+    for (let i = 0; i < desencriptarReplace.length; i++) {
+        text = text.replaceAll(desencriptarReplace[i], encriptarReplace[i])
+        console.log(text)
     }
     if(text!=""){
         textSalida.value = text;
