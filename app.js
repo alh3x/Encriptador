@@ -15,7 +15,7 @@ function minuscula() {
     let text = textEntrada.value.toLowerCase();
     let regexAcentos = /[áéíóú]/g;
     let vocales = [['á', 'a'], ['é', 'e'], ['í', 'i'], ['ó', 'o'], ['ú', 'u']];
-    let regecSimbolos = /[^a-z0-9\s]/g;
+    let regecSimbolos = /[^a-z\s]/g;
     text = text.replace(regexAcentos, function (valor) {
         for (let i = 0; i < vocales.length; i++) {
             if (valor === vocales[i][0]) {
