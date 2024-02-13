@@ -45,6 +45,7 @@ function encriptar() {
         textSalida.value = text;
         botonCopiar.removeAttribute('disabled');
         cover();
+        coverTablet()
     }
     limpiarTexto(textEntrada);
 };
@@ -65,6 +66,7 @@ function desencriptar() {
         textSalida.value = text;
         botonCopiar.removeAttribute('disabled');
         cover();
+        coverTablet()
     }
     limpiarTexto(textEntrada)
 }
@@ -87,7 +89,16 @@ function copiar() {
 //funcion para quitar el contenedor cover, que oculta la salida del encriptador
 function cover(){
     let cover = document.getElementById('cover');
+    
     if(cover.style.display != 'none'){
-        cover.style.display = 'none'
+        cover.style.display = 'none';
+    }
+}
+function coverTablet() {
+    let coverTablet = document.querySelector('.salida-encriptador');
+    let style = window.getComputedStyle(coverTablet);
+    let altura = style.getPropertyValue('height');
+    if (altura == '150px'){
+        coverTablet.style.height='auto';
     }
 }
